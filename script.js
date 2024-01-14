@@ -14,22 +14,18 @@ $(document).ready(function () {
         // Exibe o resultado
         $("#result").val(result);
     }
-
     function calculateConversion(screenWidth, screenHeight, inputNumber, inputUnit, conversionUnit) {
         // Define a tabela de conversão
         const conversionTable = {
             'px': 1,
-            'rem': 0.0625,  // Exemplo, ajuste conforme a tabela real
-            'vw': screenWidth / 100,  // Ajustado para representar o percentual da largura da tela
-            'vh': screenHeight / 100  // Ajustado para representar o percentual da altura da tela
+            'rem': 16,  // 1 rem é igual a 16 pixels
+            'vw': screenWidth / 100,  // 1 vw é igual a 1% da largura da tela em pixel
+            'vh': screenHeight / 100  // 1 vh é igual a 1% da altura da tela em pixel
             // Adicione outras unidades conforme necessário
         };
     
-        // Converte a largura da tela para porcentagem
-        const screenWidthPercentage = screenWidth / $(window).width() * 100;
-    
         // Converte a entrada para pixels em relação à largura da tela
-        const inputInPixels = inputNumber * conversionTable[inputUnit] * (screenWidthPercentage / 100);
+        const inputInPixels = inputNumber * conversionTable[inputUnit];
     
         // Converte de pixels para a unidade desejada
         const result = inputInPixels / conversionTable[conversionUnit];
