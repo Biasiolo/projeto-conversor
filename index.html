@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <title>Conversor de Medidas Web</title>
 </head>
@@ -14,72 +15,46 @@
     </header>
 
     <main>
-        <section>
-            <h2>Objetivo do Projeto</h2>
-            <p>Desenvolver um site funcional que atue como um conversor de medidas web, permitindo aos usuários converterem medidas em pixels para vh, vw, e outras unidades. O projeto é o primeiro passo para a futura expansão em um site abrangente de Recursos para Interface do Usuário.</p>
-        </section>
+        <div class="converter-container">
+            <div class="input-group">
+                <label for="screenWidth">Tamanho da Tela</label>
+                <input type="number" id="screenWidth" name="screenWidth" placeholder="Largura" required>
+                <label for="screenHeight"></label>
+                <input type="number" id="screenHeight" name="screenHeight" placeholder="Altura" required>
+            </div>
 
-        <section>
-            <h2>Requisitos Técnicos</h2>
-            <h3>Front-end:</h3>
-            <ul>
-                <li>HTML, CSS, Bootstrap para a estrutura e estilização responsiva.</li>
-                <li>Javascript para a interatividade e funcionalidades do conversor.</li>
-                <li>Interface intuitiva e amigável para o usuário.</li>
-                <li>Adaptação para diferentes tamanhos de tela e dispositivos.</li>
-            </ul>
+            <div class="input-group">
+                <label for="inputNumber">Medida</label>
+                <input type="number" id="inputNumber" name="inputNumber" placeholder="Informe o número" required>
+                <label for="inputUnit"></label>
+                <select id="inputUnit" name="inputUnit">
+                    <option value="px">Pixels (px)</option>
+                    <option value="rem">Root em (rem)</option>
+                    <option value="em">Tamanho da Fonte do Elemento Pai (em)</option>
+                    <option value="vw">Viewport Width (vw)</option>
+                    <option value="vh">Viewport Height (vh)</option>
+                </select>
+            </div>
 
-            <h3>Back-end:</h3>
-            <ul>
-                <li>A lógica do conversor será implementada em Javascript.</li>
-            </ul>
-        </section>
+            <div class="input-group">
+                <label for="conversionUnit">Converter para:</label>
+                <select id="conversionUnit" name="conversionUnit">
+                    <option value="px">Pixels (px)</option>
+                    <option value="rem">Root em (rem)</option>
+                    <option value="em">Tamanho da Fonte do Elemento Pai (em)</option>
+                    <option value="vw">Viewport Width (vw)</option>
+                    <option value="vh">Viewport Height (vh)</option>
+                </select>
+            </div>
 
-        <section>
-            <h2>Distribuição de Tarefas</h2>
-            <h3>Protótipo</h3>
-            <ul>
-                <li>Criar a estrutura básica da página utilizando HTML.</li>
-                <li>Estilizar a página usando CSS e Bootstrap para garantir responsividade.</li>
-            </ul>
+            <div class="input-group">
+                <label for="result">Resultado:</label>
+                <input type="text" id="result" name="result" placeholder="Resultado da Conversão" readonly>
+            </div>
 
-            <h3>Javascript conversor e demais funções</h3>
-            <ul>
-                <li>Implementar a lógica do conversor em Javascript.</li>
-                <li>Garantir a interatividade e a precisão nas conversões.</li>
-            </ul>
-
-            <h3>Testes</h3>
-            <ul>
-                <li>Realizar testes de usabilidade e garantir que o conversor funcione corretamente em diferentes navegadores e dispositivos.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Cronograma</h2>
-            <h3>Reunião 1</h3>
-            <ul>
-                <li>Protótipo, HTML e estrutura inicial.</li>
-                <li>Início da implementação Javascript.</li>
-            </ul>
-
-            <h3>Reunião 2</h3>
-            <ul>
-                <li>Estilização com CSS e Bootstrap.</li>
-                <li>Continuação da implementação Javascript.</li>
-            </ul>
-
-            <h3>Reunião 3</h3>
-            <ul>
-                <li>Testes de usabilidade e ajustes.</li>
-                <li class="teste">Correção de bugs e melhorias.</li>
-            </ul>
-        </section>
+            <button onclick="convert()">Converter</button>
+        </div>
     </main>
-
-    <footer>
-        <p>Este documento é um guia inicial para o desenvolvimento do Conversor de Medidas Web. Qualquer ajuste ou modificação necessária ao longo do processo será discutido e implementado conforme a necessidade.</p>
-    </footer>
 
     <script src="script.js"></script>
 </body>
