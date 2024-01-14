@@ -58,16 +58,13 @@
 
     <section>
         <div class="pagespeed">
-            <label for="urlInput">URL:</label>
-            <input type="text" id="urlInput" placeholder="Digite a URL" required>
-
-            <!-- Botão para executar a PageSpeed API -->
-            <button id="runPagespeedButton">Analisar URL</button>
-            <!-- Adicione o spinner ao HTML -->
-            <div id="loading-spinner" class="spinner"></div>
-
-            <!-- Container para os resultados -->
-            <div id="pagespeed-results-container" style="display: none;"></div>
+            <label for="urlInput">Insira a URL:</label>
+            <input type="text" id="urlInput" placeholder="https://example.com">
+          
+            <button id="runPagespeedButton">Analisar</button>
+          
+            <div id="loading-spinner">Carregando...</div>
+            <div id="pagespeed-results-container"></div>
     </section>
 
     <script src="script.js"></script>

@@ -1,11 +1,7 @@
 // Página Speed API Key
 var API_KEY = 'AIzaSyB2fA7zx7CvaD0-p6lBEkQbTpj61GsVUQw';
-// URL que você deseja analisar
-var URL_TO_GET_RESULTS_FOR = 'https://developers.google.com/speed/pagespeed/insights/';
 // URL da API do PageSpeed
 var API_URL = 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed?';
-// Chave da API CrUX (a mesma que a chave do PageSpeed)
-var CRUX_API_KEY = API_KEY;
 
 // Objeto para armazenar os callbacks
 var callbacks = {};
@@ -15,17 +11,33 @@ $(document).ready(function () {
   $('#runPagespeedButton').on('click', function () {
     // Mostrar animação de carregamento após o clique no botão
     $('#loading-spinner').show();
-    // Chamar a função para executar a PageSpeed API
-    runPagespeed();
+    // Chamar a função para executar a PageSpeed API com a URL do input
+    runPagespeed($('#urlInput').val());
   });
 });
 
-// Função para executar a PageSpeed API
-function runPagespeed() {
-  // Construir a URL da API do PageSpeed
-  var apiUrl = API_URL + 'url=' + encodeURIComponent(URL_TO_GET_RESULTS_FOR) + '&key=' + API_KEY;
+// Função para verificar se a URL é válida
+function isValidURL(url) {
+  // Regex para validar uma URL
+  var urlRegex = /^(https?:\/\/)?([\w-]+(\.[\w-]+)+\/?)?([^\s()<>]+|\([^\s()<>]+\))+(\/?|\/\S+)$/;
 
-  // Fazer a requisição AJAX para o PageSpeed
+  return urlRegex.test(url);
+}
+
+// Função para executar a PageSpeed API
+function runPagespeed(urlToAnalyze) {
+  // Verificar se a URL fornecida é válida
+  if (!isValidURL(urlToAnalyze)) {
+    alert('URL inválida. Certifique-se de incluir uma URL válida.');
+    // Ocultar animação de carregamento em caso de erro
+    $('#loading-spinner').hide();
+    return;
+  }
+
+  // Construir a URL da API
+  var apiUrl = API_URL + 'url=' + encodeURIComponent(urlToAnalyze) + '&key=' + API_KEY;
+
+  // Fazer a requisição AJAX
   $.ajax({
     url: apiUrl,
     method: 'GET',
@@ -33,52 +45,12 @@ function runPagespeed() {
     success: function (result) {
       // Callback para exibir os resultados do PageSpeed
       callbacks.displayPageSpeedResults(result);
-
-      // Adicionar dados da Chrome UX Report API (CrUX)
-      fetchCrUXData(URL_TO_GET_RESULTS_FOR);
-
       // Ocultar animação de carregamento após o carregamento dos resultados
       $('#loading-spinner').hide();
       // Exibir o container de resultados
       $('#pagespeed-results-container').show();
     },
-    error: function (xhr, status, error) {
-      alert('Erro ao verificar a URL: ' + error);
-      // Ocultar animação de carregamento em caso de erro
-      $('#loading-spinner').hide();
-    },
-  });
-}
-
-// Função para buscar dados na Chrome UX Report API (CrUX)
-function fetchCrUXData(origin) {
-  // URL da API CrUX
-  var cruxApiUrl = 'https://chromeuxreport.googleapis.com/v1/records:queryRecord';
-
-  // Configurar parâmetros da consulta
-  var cruxParams = {
-    origin: origin,
-    metrics: ['first_contentful_paint', 'first_input_delay'],
-    formFactor: 'desktop',
-    key: CRUX_API_KEY,
-  };
-
-  // Construir a URL da consulta
-  var cruxQueryURL = cruxApiUrl + '?' + $.param(cruxParams);
-
-  // Fazer a requisição AJAX para a API CrUX
-  $.ajax({
-    url: cruxQueryURL,
-    method: 'GET',
-    dataType: 'json',
-    success: function (cruxData) {
-      // Exibir dados da Chrome UX Report API (CrUX)
-      console.log('CrUX Data:', cruxData);
-      // Adicione o código para exibir os dados do CrUX conforme necessário
-    },
-    error: function (xhr, status, error) {
-      alert('Erro ao obter dados da API CrUX: ' + error);
-    },
+    
   });
 }
 
