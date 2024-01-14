@@ -20,7 +20,6 @@ $(document).ready(function () {
         const conversionTable = {
             'px': 1,
             'rem': 0.0625,  // Exemplo, ajuste conforme a tabela real
-            'em': 0.125,    // Exemplo, ajuste conforme a tabela real
             'vw': screenWidth / 100,  // Ajustado para representar o percentual da largura da tela
             'vh': screenHeight / 100  // Ajustado para representar o percentual da altura da tela
             // Adicione outras unidades conforme necessário
