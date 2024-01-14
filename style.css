@@ -22,6 +22,11 @@ main {
     text-align: center;
 }
 
+.pagespeed {
+    text-align: center;
+    margin-top: 20px;
+}
+
 .input-group {
     margin-bottom: 15px;
     display: flex;
@@ -47,7 +52,7 @@ main {
 
 button {
     background-color: #333;
-    color: white;
+    color: whitesmoke;
     border: none;
     cursor: pointer;
     padding: 10px;
@@ -56,4 +61,46 @@ button {
 
 button:hover {
     background-color: #555;
+}
+
+#results-container {
+    margin-top: 20px;
+}
+
+/* Adicione os estilos do spinner e outros estilos conforme necessário */
+#loading-spinner {
+    display: none; /* Inicialmente oculto */
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top: 4px solid #3498db;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  #pagespeed-results-container {
+    /* Adicione seus estilos de container aqui */
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  #pagespeed-results-container p {
+    margin: 10px 0;
+  }
+  
+  #pagespeed-results-container h2 {
+    color: #3498db;
+  }
+
+#pagespeed-results-container img {
+    display: block;
+    margin: 20px auto;
 }

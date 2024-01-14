@@ -25,7 +25,8 @@
 
             <div class="input-group">
                 <label for="inputNumber">Medida</label>
-                <input type="number" id="inputNumber" name="inputNumber" placeholder="Informe o número para converter" required>
+                <input type="number" id="inputNumber" name="inputNumber" placeholder="Informe o número para converter"
+                    required>
                 <label for="inputUnit"></label>
                 <select id="inputUnit" name="inputUnit">
                     <option value="px">Pixels (px)</option>
@@ -48,16 +49,39 @@
 
             <div class="input-group">
                 <button onclick="convert()">Converter</button>
-                    <br>
+                <br>
                 <label for="result">Resultado</label>
                 <input type="text" id="result" name="result" placeholder="Resultado da Conversão" readonly>
             </div>
-
-
         </div>
     </main>
 
+    <section>
+        <div class="pagespeed">
+            <label for="urlInput">URL:</label>
+            <input type="text" id="urlInput" placeholder="Digite a URL" required>
+
+            <!-- Botão para executar a PageSpeed API -->
+            <button id="runPagespeedButton">Analisar URL</button>
+            <!-- Adicione o spinner ao HTML -->
+            <div id="loading-spinner" class="spinner"></div>
+
+            <!-- Container para os resultados -->
+            <div id="pagespeed-results-container" style="display: none;"></div>
+    </section>
+
     <script src="script.js"></script>
+    <script src="pagespeed.js"></script>
+
+    <script>
+        // Document ready
+        $(document).ready(function () {
+            // Botão de execução do PageSpeed
+            $('#runPagespeedButton').on('click', function () {
+                runPagespeed();
+            });
+        });
+    </script>
 </body>
 
 </html>
