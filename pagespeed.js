@@ -43,7 +43,7 @@ function displayPageSpeedResults(result) {
   container.empty();
 
   // Exibir pontuações para cada categoria
-  container.append('<h2>Page Performance Scores:</h2>');
+  container.append('<h2>Page Scores:</h2>');
   var categories = result.lighthouseResult.categories;
   for (var category in categories) {
     var score = categories[category].score * 100;
