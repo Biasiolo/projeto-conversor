@@ -1,9 +1,0 @@
-{
-    "formFactor": "DESKTOP",
-    "origin": "https://uol.com.br",
-    "metrics": [
-      "largest_contentful_paint",
-      "experimental_time_to_first_byte"
-    ]
-  }
-  

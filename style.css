@@ -2,6 +2,7 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #555;
 }
 
 header {
@@ -20,11 +21,6 @@ main {
 
 .converter-container {
     text-align: center;
-}
-
-.pagespeed {
-    text-align: center;
-    margin-top: 20px;
 }
 
 .input-group {
@@ -67,40 +63,90 @@ button:hover {
     margin-top: 20px;
 }
 
+
+
 /* Adicione os estilos do spinner e outros estilos conforme necessário */
 #loading-spinner {
-    display: none; /* Inicialmente oculto */
+    display: none;
+    /* Inicialmente oculto */
     border: 4px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
     border-top: 4px solid #3498db;
-    width: 40px;
-    height: 40px;
+    width: 20px;
+    height: 20px;
     animation: spin 1s linear infinite;
     margin: 20px auto;
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-  
-  #pagespeed-results-container {
-    /* Adicione seus estilos de container aqui */
+}
+
+.pagespeed {
+    text-align: center;
     margin-top: 20px;
-    padding: 20px;
+}
+
+#pageScore {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#urlInput {
+    width: 30%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+
+
+
+#runPagespeedButton {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#runPagespeedButton:hover {
+    background-color: #2980b9;
+}
+
+
+#pagespeed-results-container {
+    margin: 20px auto;
+    width: 40vw;
+    padding: 10px;
     border: 1px solid #ddd;
     border-radius: 8px;
-  }
-  
-  #pagespeed-results-container p {
-    margin: 10px 0;
-  }
-  
-  #pagespeed-results-container h2 {
-    color: #3498db;
-  }
+    text-transform: uppercase;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-weight: 600;
+    align-items: center;
+    margin-bottom: 20px;
+}
 
-#pagespeed-results-container img {
-    display: block;
-    margin: 20px auto;
+#pagespeed-results-container p {
+    margin: 15px 0;
+    color: #333;
+}
+
+#pagespeed-results-container h2 {
+    color: #3498db;
+    margin-top: 10px;
+}
+
+
+
+/* Animação para o spinner */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
