@@ -16,18 +16,24 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    margin: 20px auto;
+
 }
 
 .converter-container {
     text-align: center;
 }
 
-.input-group {
-    margin-bottom: 15px;
+.screenSize {
     display: flex;
+    margin: 20px auto;
+}
+
+.input-group {
+    display: flex;
+    align-items: center; /* Centraliza os itens horizontalmente */
+    margin-bottom: 10px;
     flex-direction: column;
-    align-items: center;
 }
 
 .input-group label {
@@ -36,15 +42,11 @@ main {
 
 .input-group input,
 .input-group select {
-    width: 100%;
-    box-sizing: border-box;
+    width: 250px;
     padding: 10px;
     margin-bottom: 10px;
 }
 
-.input-group select {
-    width: 100%;
-}
 
 button {
     background-color: #333;

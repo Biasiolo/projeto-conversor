@@ -1,9 +1,18 @@
-// script.js
 $(document).ready(function () {
     var converter = {
+        sizes: {
+            'Mobile': { width: 375, height: 667 },
+            'Tablet': { width: 768, height: 1024 },
+            'Desktop': { width: 1920, height: 1080 }
+        },
+
         convert: function () {
-            var screenWidth = parseFloat($("#screenWidth").val());
-            var screenHeight = parseFloat($("#screenHeight").val());
+            var selectedSize = $("input[name='screenSize']:checked").val();
+            var size = this.sizes[selectedSize];
+
+            var screenWidth = size.width;
+            var screenHeight = size.height;
+
             var inputNumber = parseFloat($("#inputNumber").val());
             var inputUnit = $("#inputUnit").val();
             var conversionUnit = $("#conversionUnit").val();

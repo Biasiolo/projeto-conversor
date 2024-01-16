@@ -16,18 +16,29 @@
 
     <main>
         <div class="converter-container">
-            <div class="input-group">
-                <label for="screenWidth">Tamanho da Tela</label>
-                <input type="number" id="screenWidth" name="screenWidth" placeholder="Largura em pixels" required>
-                <label for="screenHeight"></label>
-                <input type="number" id="screenHeight" name="screenHeight" placeholder="Altura em pixels" required>
+                <label for="screenSize">Tamanho da Tela:</label>
+            <div class="screenSize">
+                <div>
+                    <input type="radio" id="mobileSize" name="screenSize" value="Mobile" checked>
+                    <label for="mobileSize">Mobile</label>
+                </div>
+                <div>
+                    <input type="radio" id="tabletSize" name="screenSize" value="Tablet">
+                    <label for="tabletSize">Tablet</label>
+                </div>
+                <div>
+                    <input type="radio" id="desktopSize" name="screenSize" value="Desktop">
+                    <label for="desktopSize">Desktop</label>
+                </div>
             </div>
-
+    
             <div class="input-group">
-                <label for="inputNumber">Medida</label>
-                <input type="number" id="inputNumber" name="inputNumber" placeholder="Informe o número para converter"
-                    required>
-                <label for="inputUnit"></label>
+                <label for="inputNumber">Medida:</label>
+                <input type="number" id="inputNumber" name="inputNumber" placeholder="Informe o número para converter" required>
+            </div>
+    
+            <div class="input-group">
+                <label for="inputUnit">Unidade de Entrada:</label>
                 <select id="inputUnit" name="inputUnit">
                     <option value="px">Pixels (px)</option>
                     <option value="rem">Root em (rem)</option>
@@ -36,9 +47,9 @@
                     <option value="vh">Viewport Height (vh)</option>
                 </select>
             </div>
-
+    
             <div class="input-group">
-                <label for="conversionUnit">Converter para</label>
+                <label for="conversionUnit">Converter para:</label>
                 <select id="conversionUnit" name="conversionUnit">
                     <option value="px">Pixels (px)</option>
                     <option value="rem">Root em (rem)</option>
@@ -46,11 +57,13 @@
                     <option value="vh">Viewport Height (vh)</option>
                 </select>
             </div>
-
+    
             <div class="input-group">
                 <button onclick="convert()">Converter</button>
-                <br>
-                <label for="result">Resultado</label>
+            </div>
+    
+            <div class="input-group">
+                <label for="result">Resultado:</label>
                 <input type="text" id="result" name="result" placeholder="Resultado da Conversão" readonly>
             </div>
         </div>
@@ -58,9 +71,9 @@
 
     <section>
         <div class="pagespeed">
-            <h2>Page Score</h2>
+            <h2>Test Page Score</h2>
             <label for="urlInput"></label>
-            <input type="text" id="urlInput" placeholder="Insir a URL https://example.com">
+            <input type="text" id="urlInput" placeholder="Insira a URL https://example.com">
             <button id="runPagespeedButton">Analisar</button>
             <div id="loading-spinner"></div>
             <div id="pagespeed-results-container"></div>
